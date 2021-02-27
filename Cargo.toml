@@ -1,0 +1,35 @@
+[package]
+name = "vr-rust-starter"
+version = "0.1.0"
+authors = ["K.R. Zentner <krzentner@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ash = "0.29.0"
+byteorder = "1.4.2"
+cstr = "0.2.8"
+failure = "0.1.8"
+image = "0.23.13"
+memoffset = "0.5.1"
+nalgebra = "0.24.1"
+openvr = "0.6.0"
+openvr_sys = "2.0.3"
+path-slash = "0.1.4"
+safe-transmute = "0.11.1"
+unsafe-send-sync = "0.1.0"
+ureq = "2.0.2"
+winit = "0.20.0"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+metal = "0.17.0"
+cocoa = "0.18.4"
+objc  = "0.2.5"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi = { version = "0.3.5", features = ["windef", "libloaderapi"] }
+
+[[bin]]
+name = "hellovr"
+path = "src/hellovr_vulkan.rs"
